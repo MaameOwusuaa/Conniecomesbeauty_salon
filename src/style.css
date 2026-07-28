@@ -1,0 +1,825 @@
+/* =========================
+   GENERAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+
+body {
+    background: #fff8f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+
+
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+
+header {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.navbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+}
+
+
+
+.logo {
+
+    font-size: 24px;
+    font-weight: bold;
+    color: #b76e79;
+
+}
+
+
+
+.nav-links {
+
+    display: flex;
+    gap: 25px;
+    list-style: none;
+
+}
+
+
+
+.nav-links a {
+
+    font-size: 16px;
+    transition: .3s;
+
+}
+
+
+
+.nav-links a:hover,
+.nav-links .active {
+
+    color: #b76e79;
+
+}
+
+
+
+.menu-icon {
+
+    display: none;
+    font-size: 25px;
+
+}
+
+
+
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+.btn {
+
+    display: inline-block;
+    background: #b76e79;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: .3s;
+
+}
+
+
+.btn:hover {
+
+    background: #8f4f5a;
+
+}
+
+
+
+.secondary {
+
+    background: transparent;
+    color: #b76e79;
+    border: 2px solid #b76e79;
+    margin-left: 15px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+
+.hero {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 70px 8%;
+    gap: 40px;
+
+}
+
+
+
+.hero-text {
+
+    width: 50%;
+
+}
+
+
+
+.hero-text h1 {
+
+    font-size: 48px;
+    color: #7b3f49;
+    margin-bottom: 20px;
+
+}
+
+
+
+.hero-image {
+
+    width: 45%;
+
+}
+
+
+.hero-image img {
+
+    border-radius: 20px;
+
+}
+
+
+
+
+
+
+/* =========================
+   PAGE BANNER
+========================= */
+
+
+.page-banner {
+
+    text-align: center;
+    padding: 70px 10%;
+    background: #f8dfe3;
+
+}
+
+
+.page-banner h1 {
+
+    font-size: 40px;
+    color: #7b3f49;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+
+.about {
+
+    text-align: center;
+    padding: 60px 10%;
+
+}
+
+
+.about h2 {
+
+    color: #7b3f49;
+    margin-bottom: 20px;
+
+}
+
+
+
+
+
+
+
+.about-container {
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    padding: 70px 8%;
+
+}
+
+
+.about-image,
+.about-text {
+
+    width: 50%;
+
+}
+
+
+.about-image img {
+
+    border-radius: 20px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   SERVICES
+========================= */
+
+
+.services,
+.all-services {
+
+    padding: 70px 8%;
+    text-align: center;
+
+}
+
+
+
+.service-container,
+.service-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 30px;
+
+    margin-top: 40px;
+
+}
+
+
+
+.service-card,
+.service-box {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+.service-box img {
+
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+
+}
+
+
+
+.service-card h3,
+.service-box h2 {
+
+    color:#b76e79;
+    margin:15px 0;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   SHOP PAGE
+========================= */
+
+
+.shop-section {
+
+    padding:70px 8%;
+
+}
+
+
+
+.product {
+
+    display: flex;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.product-card {
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+.product-card img {
+
+    height:230px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+
+
+.product-card h2 {
+
+    color:#b76e79;
+
+    margin:15px 0;
+
+}
+
+
+
+.product-card button {
+
+    background:#b76e79;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:25px;
+
+    margin-top:15px;
+
+}
+
+.view-more:hover{
+     color: #b76e79;
+}
+
+
+
+
+
+
+
+
+/* =========================
+   BOOKING & ACCOUNT FORMS
+========================= */
+
+
+.booking-section,
+.account-section,
+.contact-section {
+
+    padding:70px 8%;
+
+}
+
+
+
+.booking-container,
+.account-container,
+.contact-container {
+
+    display:flex;
+
+    gap:40px;
+
+}
+
+
+
+.booking-form,
+.account-box,
+.contact-form,
+.contact-info {
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    width:50%;
+
+}
+
+
+
+input,
+select,
+textarea {
+
+    width:100%;
+
+    padding:12px;
+
+    margin:10px 0 20px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+}
+
+
+
+form button {
+
+    background:#b76e79;
+
+    color:white;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    width:100%;
+
+}
+
+
+
+
+
+
+/* =========================
+   VALUES SECTION
+========================= */
+
+
+.value-container {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    padding:40px 8%;
+
+}
+
+
+.value-card {
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   CONTACT
+========================= */
+
+
+.social-links a {
+
+    display:inline-block;
+
+    margin:10px;
+
+    color:#b76e79;
+
+}
+
+
+
+
+.map-placeholder {
+
+    height:300px;
+
+    background:#eee;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:30px 8%;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   BOOKING BANNER
+========================= */
+
+
+.booking-banner {
+
+    text-align:center;
+
+    padding:70px 10%;
+
+    background:#f8dfe3;
+
+}
+
+
+
+.booking-banner h2 {
+
+    color:#7b3f49;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer {
+
+    background:#7b3f49;
+
+    color:white;
+
+    text-align:center;
+
+    padding:40px 10%;
+
+}
+
+
+
+.footer-links {
+
+    margin:20px;
+
+}
+
+
+.footer-links a {
+
+    margin:10px;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+
+@media(max-width:900px){
+
+
+.nav-links {
+
+    display:none;
+
+}
+
+
+.menu-icon {
+
+    display:block;
+
+}
+
+
+
+.hero,
+.about-container,
+.booking-container,
+.account-container,
+.contact-container {
+
+    flex-direction:column;
+
+}
+
+
+
+.hero-text,
+.hero-image,
+.about-image,
+.about-text,
+.booking-form,
+.account-box,
+.contact-form,
+.contact-info {
+
+    width:100%;
+
+}
+
+
+
+.service-grid,
+.service-container,
+.product-grid,
+.value-container {
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+
+@media(max-width:600px){
+
+
+.navbar {
+
+    padding:20px;
+
+}
+
+
+.logo {
+
+    font-size:18px;
+
+}
+
+
+
+.hero {
+
+    padding:40px 5%;
+
+}
+
+
+
+.hero-text h1 {
+
+    font-size:32px;
+
+}
+
+
+
+.page-banner h1 {
+
+    font-size:30px;
+
+}
+
+
+
+.service-grid,
+.service-container,
+.product-grid,
+.value-container {
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.booking-section,
+.account-section,
+.contact-section {
+
+    padding:40px 5%;
+
+}
+
+
+
+footer {
+
+    padding:30px 5%;
+
+}
+
+
+}
