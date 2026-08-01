@@ -231,7 +231,76 @@ header {
 }
 
 
+.contact-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: left;
+}
 
+
+.contact-banner img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+
+.contact-banner .banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 520px;
+    flex: 1;
+}
+
+
+.contact-banner h1 {
+    margin: 0;
+}
+
+
+.contact-banner p {
+    margin: 0;
+}
+
+
+.product-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.product-container .product-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-container .product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.products h2{
+    text-align: center;
+}
+
+.view-more{
+    display: block;
+    width: fit-content;
+    margin: 25px auto 0;
+    text-align: center;
+}
 
 
 
@@ -376,13 +445,11 @@ header {
 
 
 
-.product {
+.product-grid {
 
-    display: flex;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
 
 }
 
@@ -390,6 +457,10 @@ header {
 
 .product-card {
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     background:white;
 
     padding:20px;
@@ -537,6 +608,10 @@ form button {
 /* =========================
    VALUES SECTION
 ========================= */
+
+.values-section {
+    text-align: center;
+}
 
 
 .value-container {
@@ -754,72 +829,81 @@ footer {
 
 @media(max-width:600px){
 
+    body {
+        overflow-x: hidden;
+    }
 
-.navbar {
+    .navbar {
+        padding:20px;
+        flex-wrap: wrap;
+    }
 
-    padding:20px;
+    .logo {
+        font-size:18px;
+    }
 
-}
+    .nav-links {
+        display: none;
+    }
 
+    .menu-icon {
+        display: block;
+    }
 
-.logo {
+    .hero,
+    .page-banner,
+    .about-container,
+    .contact-banner,
+    .contact-container,
+    .booking-container,
+    .account-container {
+        flex-direction: column;
+        padding:40px 5%;
+        gap:20px;
+    }
 
-    font-size:18px;
+    .hero-text,
+    .hero-image,
+    .about-image,
+    .about-text,
+    .contact-form,
+    .contact-info,
+    .booking-form,
+    .account-box {
+        width:100%;
+    }
 
-}
+    .hero-text h1,
+    .page-banner h1 {
+        font-size:32px;
+    }
 
+    .contact-banner img {
+        width:100%;
+        max-width:280px;
+        height:auto;
+        margin:0 auto;
+    }
 
+    .contact-banner .banner-text {
+        max-width:100%;
+    }
 
-.hero {
+    .service-grid,
+    .service-container,
+    .product-grid,
+    .value-container {
+        grid-template-columns:1fr;
+    }
 
-    padding:40px 5%;
+    .booking-section,
+    .account-section,
+    .contact-section {
+        padding:40px 5%;
+    }
 
-}
-
-
-
-.hero-text h1 {
-
-    font-size:32px;
-
-}
-
-
-
-.page-banner h1 {
-
-    font-size:30px;
-
-}
-
-
-
-.service-grid,
-.service-container,
-.product-grid,
-.value-container {
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.booking-section,
-.account-section,
-.contact-section {
-
-    padding:40px 5%;
-
-}
-
-
-
-footer {
-
-    padding:30px 5%;
-
-}
-
+    footer {
+        padding:30px 5%;
+    }
 
 }
