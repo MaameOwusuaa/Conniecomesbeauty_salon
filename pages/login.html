@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/54e6b76ccd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../src/style.css">
 
+    <script src="../src/main.js" defer></script>
 </head>
 
 
@@ -17,41 +18,41 @@
 
 
 
-<!-- Header -->
+    <!-- Header -->
 
-<header>
+    <header>
 
-    <nav class="navbar">
+        <nav class="navbar">
 
-        <div class="logo">
-            Conniecomes Beauty Salon
-        </div>
+            <div class="logo">
+                Conniecomes Beauty Salon
+            </div>
 
 
-        <ul class="nav-links">
+            <ul class="nav-links">
 
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="booking.html">Book Now</a>
-            <li></li>
-            <li><a href="login.html" class="active">Login/Signup</a></li>
-            <li><i class="fa-solid fa-cart-shopping fa-bounce" style="color: rgb(197, 64, 152);"></i></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html">Book Now</a>
+                <li></li>
+                <li><a href="login.html" class="active">Login/Signup</a></li>
+                <li><i class="fa-solid fa-cart-shopping fa-bounce" style="color: rgb(197, 64, 152);"></i></li>
 
-        </ul>
+            </ul>
 
 
-        <div class="menu-icon">
-            ☰
-        </div>
+            <div class="menu-icon">
+                ☰
+            </div>
 
 
-    </nav>
+        </nav>
 
 
-</header>
+    </header>
 
 
 
@@ -60,22 +61,22 @@
 
 
 
-<!-- Login Banner -->
+    <!-- Login Banner -->
 
-<section class="page-banner">
+    <section class="page-banner">
 
 
-    <h1>
-        Customer Account
-    </h1>
+        <h1>
+            Customer Account
+        </h1>
 
 
-    <p>
-        Login to manage your appointments or create a new account.
-    </p>
+        <p>
+            Login to manage your appointments or create a new account.
+        </p>
 
 
-</section>
+    </section>
 
 
 
@@ -84,96 +85,272 @@
 
 
 
-<!-- Login/Register Section -->
+    <!-- Login/Register Section -->
 
 
-<section class="account-section">
+    <section class="account-section">
 
 
-    <div class="account-container">
+        <div class="account-container">
 
 
 
 
 
 
-        <!-- Login Form -->
+            <!-- Login Form -->
 
 
-        <div class="account-box">
+            <div class="account-box">
 
 
-            <h2>
-                Login
-            </h2>
+                <h2>
+                    Login
+                </h2>
 
 
 
-            <form>
+                <form>
 
 
-                <label for="login-email">
-                    Email Address
-                </label>
-
-
-                <input 
-                type="email"
-                id="login-email"
-                placeholder="Enter your email"
-                required>
-
-
-
-
-
-                <label for="login-password">
-                    Password
-                </label>
-
-
-                <input 
-                type="password"
-                id="login-password"
-                placeholder="Enter your password"
-                required>
-
-
-
-
-
-                <div class="remember">
-
-
-                    <input type="checkbox" id="remember">
-
-
-                    <label for="remember">
-                        Remember me
+                    <label for="login-email">
+                        Email Address
                     </label>
 
 
-                </div>
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
 
 
 
 
 
-                <button type="submit">
-                    Login
-                </button>
+                    <label for="login-password">
+                        Password
+                    </label>
+
+
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
 
 
 
 
-                <a href="#" class="forgot">
-                    Forgot Password?
-                </a>
+
+                    <div class="remember">
+
+
+                        <input type="checkbox" id="remember">
+
+
+                        <label for="remember">
+                            Remember me
+                        </label>
+
+
+                    </div>
 
 
 
-            </form>
 
+
+                    <button type="submit">
+                        Login
+                    </button>
+
+
+
+
+                    <a href="#" class="forgot">
+                        Forgot Password?
+                    </a>
+
+
+
+                </form>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Registration Form -->
+
+
+            <div class="account-box">
+
+
+                <h2>
+                    Create Account
+                </h2>
+
+
+
+
+                <form>
+
+
+
+                    <label for="fullname">
+                        Full Name
+                    </label>
+
+
+                    <input type="text" id="fullname" placeholder="Enter your full name" required>
+
+
+
+                    <label for="register-phone">
+                        Phone Number
+                    </label>
+
+
+                    <input type="tel" id="register-phone" placeholder="Enter your phone number" required>
+
+
+
+
+                    <label for="register-email">
+                        Email Address
+                    </label>
+
+
+                    <input type="email" id="register-email" placeholder="Enter your email" required>
+
+
+
+
+                    <label for="password">
+                        Create Password
+                    </label>
+
+
+                    <input type="password" id="password" placeholder="Create a password" required>
+
+
+
+
+                    <label for="confirm-password">
+                        Confirm Password
+                    </label>
+
+                    <input type="password" id="confirm-password" placeholder="Confirm password" required>
+
+
+
+
+
+                    <button type="submit">
+                        Register
+                    </button>
+
+
+
+                </form>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Benefits Section -->
+
+
+    <section class="about">
+
+
+        <h2>
+            Why Create An Account?
+        </h2>
+
+
+        <p>
+
+            Creating an account allows you to easily book appointments,
+            track your services, and receive updates about new products
+            and beauty offers.
+
+        </p>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+
+
+    <footer>
+
+
+        <h3>
+            Conniecomes Beauty Salon
+        </h3>
+
+
+        <p>
+            Beauty • Confidence • Elegance
+        </p>
+
+
+
+
+        <div class="footer-links">
+
+
+            <a href="../images/">
+                Home
+            </a>
+
+
+            <a href="services.html">
+                Services
+            </a>
+
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+
+            <a href="booking.html">
+                Booking
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
 
 
         </div>
@@ -181,217 +358,13 @@
 
 
 
+        <p class="copyright">
+            © 2026 Conniecomes Beauty Salon. All Rights Reserved.
+        </p>
 
 
 
-
-
-        <!-- Registration Form -->
-
-
-        <div class="account-box">
-
-
-            <h2>
-                Create Account
-            </h2>
-
-
-
-
-            <form>
-
-
-
-                <label for="fullname">
-                    Full Name
-                </label>
-
-
-                <input 
-                type="text"
-                id="fullname"
-                placeholder="Enter your full name"
-                required>
-
-
-
-                <label for="register-phone">
-                    Phone Number
-                </label>
-
-
-                <input 
-                type="tel"
-                id="register-phone"
-                placeholder="Enter your phone number"
-                required>
-
-
-
-
-                <label for="register-email">
-                    Email Address
-                </label>
-
-
-                <input 
-                type="email"
-                id="register-email"
-                placeholder="Enter your email"
-                required>
-
-
-
-
-                <label for="password">
-                    Create Password
-                </label>
-
-
-                <input 
-                type="password"
-                id="password"
-                placeholder="Create a password"
-                required>
-
-
-
-
-                <label for="confirm-password">
-                    Confirm Password
-                </label>
-
-                <input 
-                type="password"
-                id="confirm-password"
-                placeholder="Confirm password"
-                required>
-
-
-
-
-
-                <button type="submit">
-                    Register
-                </button>
-
-
-
-            </form>
-
-
-
-        </div>
-
-
-
-
-
-
-
-    </div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- Benefits Section -->
-
-
-<section class="about">
-
-
-    <h2>
-        Why Create An Account?
-    </h2>
-
-
-    <p>
-
-        Creating an account allows you to easily book appointments,
-        track your services, and receive updates about new products
-        and beauty offers.
-
-    </p>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- Footer -->
-
-
-<footer>
-
-
-    <h3>
-        Conniecomes Beauty Salon
-    </h3>
-
-
-    <p>
-        Beauty • Confidence • Elegance
-    </p>
-
-
-
-
-    <div class="footer-links">
-
-
-        <a href="../images/">
-            Home
-        </a>
-
-
-        <a href="services.html">
-            Services
-        </a>
-
-
-        <a href="shop.html">
-            Shop
-        </a>
-
-
-        <a href="booking.html">
-            Booking
-        </a>
-
-        <a href="about.html">
-            About
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-
-    </div>
-
-
-
-
-    <p class="copyright">
-        © 2026 Conniecomes Beauty Salon. All Rights Reserved.
-    </p>
-
-
-
-</footer>
+    </footer>
 
 
 

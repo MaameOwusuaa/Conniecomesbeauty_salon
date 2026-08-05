@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/54e6b76ccd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../src/style.css">
 
+    <script src="../src/main.js" defer></script>
 </head>
 
 
@@ -17,415 +18,398 @@
 
 
 
-<!-- Header -->
+    <!-- Header -->
 
-<header>
+    <header>
 
-    <nav class="navbar">
+        <nav class="navbar">
 
-        <div class="logo">
-            Conniecomes Beauty Salon
-        </div>
+            <div class="logo">
+                Conniecomes Beauty Salon
+            </div>
 
 
-        <ul class="nav-links">
+            <ul class="nav-links">
 
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="booking.html" class="active">Book Now</a></li>
-            <li></li>
-            <li><a href="login.html">Login/Signup</a></li>
-            <li><i class="fa-solid fa-cart-shopping fa-bounce" style="color: rgb(197, 64, 152);"></i></li>
-            
-        </ul>
-
-
-        <div class="menu-icon">
-            ☰
-        </div>
-
-
-    </nav>
-
-</header>
-
-
-
-
-
-
-
-
-<!-- Booking Banner -->
-
-<section class="page-banner">
-
-
-    <h1>
-        Book Your Appointment
-    </h1>
-
-
-    <p>
-        Schedule your beauty appointment with Conniecomes Beauty Salon today.
-    </p>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- Booking Form -->
-
-<section class="booking-section">
-
-
-    <div class="booking-container">
-
-
-
-        <form class="booking-form">
-
-
-
-            <h2>
-                Appointment Details
-            </h2>
-
-
-
-
-
-            <label for="name">
-                Full Name
-            </label>
-
-
-            <input 
-            type="text" 
-            id="name" 
-            placeholder="Enter your full name"
-            required>
-
-
-
-
-
-
-
-            <label for="phone">
-                Phone Number
-            </label>
-
-
-            <input 
-            type="tel" 
-            id="phone" 
-            placeholder="Enter your phone number"
-            required>
-
-
-
-
-
-
-
-            <label for="email">
-                Email Address
-            </label>
-
-
-            <input 
-            type="email" 
-            id="email" 
-            placeholder="Enter your email">
-
-
-
-
-
-
-
-            <label for="service">
-                Select Service
-            </label>
-
-
-            <select id="service" required>
-
-
-                <option value="">
-                    Choose a service
-                </option>
-
-
-                <option>
-                    Wig Installation
-                </option>
-
-
-                <option>
-                    Frontal Installation
-                </option>
-
-
-                <option>
-                    Wig Revamping
-                </option>
-
-
-                <option>
-                    Custom Wig Making
-                </option>
-
-
-                <option>
-                    Manicure
-                </option>
-
-
-                <option>
-                    Pedicure
-                </option>
-
-
-                <option>
-                    Hair Treatment
-                </option>
-
-
-                <option>
-                    Makeup Service
-                </option>
-
-
-            </select>
-
-
-
-            <label for="date">
-                Preferred Date
-            </label>
-
-            <input 
-            type="date" 
-            id="date"
-            required>
-
-            <label for="time">
-                Preferred Time
-            </label>
-
-
-            <select id="time">
-
-
-                <option>
-                    Select Time
-                </option>
-
-
-                <option>
-                    9:00 AM
-                </option>
-
-
-                <option>
-                    11:00 AM
-                </option>
-
-
-                <option>
-                    1:00 PM
-                </option>
-
-
-                <option>
-                    3:00 PM
-                </option>
-
-
-                <option>
-                    5:00 PM
-                </option>
-
-
-            </select>
-
-
-
-            <label for="message">
-                Additional Information
-            </label>
-
-
-            <textarea 
-            id="message"
-            rows="5"
-            placeholder="Tell us anything we should know">
-            </textarea>
-
-
-
-            <button type="submit">
-                Confirm Booking
-            </button>
-
-
-        </form>
-
-
-
-
-
-
-        <!-- Booking Information -->
-
-
-        <div class="booking-info">
-
-
-            <h2>
-                Visit Us
-            </h2>
-
-
-            <p>
-                Conniecomes Beauty Salon provides professional
-                beauty services and quality hair products.
-            </p>
-
-
-            <h3>
-                Opening Hours
-            </h3>
-
-
-            <p>
-                Monday - Saturday<br>
-                9:00 AM - 6:00 PM
-            </p>
-
-
-
-            <h3>
-                Services Available
-            </h3>
-
-
-            <ul>
-
-                <li>
-                    Wig Installation
-                </li>
-
-
-                <li>
-                    Wig Revamping
-                </li>
-
-
-                <li>
-                    Hair Treatments
-                </li>
-
-
-                <li>
-                    Manicure & Pedicure
-                </li>
-
-
-                <li>
-                    Makeup Services
-                </li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html" class="active">Book Now</a></li>
+                <li></li>
+                <li><a href="login.html">Login/Signup</a></li>
+                <li><i class="fa-solid fa-cart-shopping fa-bounce" style="color: rgb(197, 64, 152);"></i></li>
 
             </ul>
 
 
+            <div class="menu-icon">
+                ☰
+            </div>
+
+
+        </nav>
+
+    </header>
+
+
+
+
+
+
+
+
+    <!-- Booking Banner -->
+
+    <section class="page-banner">
+
+
+        <h1>
+            Book Your Appointment
+        </h1>
+
+
+        <p>
+            Schedule your beauty appointment with Conniecomes Beauty Salon today.
+        </p>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Booking Form -->
+
+    <section class="booking-section">
+
+
+        <div class="booking-container">
+
+
+
+            <form class="booking-form">
+
+
+
+                <h2>
+                    Appointment Details
+                </h2>
+
+
+
+
+
+                <label for="name">
+                    Full Name
+                </label>
+
+
+                <input type="text" id="name" placeholder="Enter your full name" required>
+
+
+
+
+
+
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+
+
+
+
+
+
+                <label for="email">
+                    Email Address
+                </label>
+
+
+                <input type="email" id="email" placeholder="Enter your email">
+
+
+
+
+
+
+
+                <label for="service">
+                    Select Service
+                </label>
+
+
+                <select id="service" required>
+
+
+                    <option value="">
+                        Choose a service
+                    </option>
+
+
+                    <option>
+                        Wig Installation
+                    </option>
+
+
+                    <option>
+                        Frontal Installation
+                    </option>
+
+
+                    <option>
+                        Wig Revamping
+                    </option>
+
+
+                    <option>
+                        Custom Wig Making
+                    </option>
+
+
+                    <option>
+                        Manicure
+                    </option>
+
+
+                    <option>
+                        Pedicure
+                    </option>
+
+
+                    <option>
+                        Hair Treatment
+                    </option>
+
+
+                    <option>
+                        Makeup Service
+                    </option>
+
+
+                </select>
+
+
+
+                <label for="date">
+                    Preferred Date
+                </label>
+
+                <input type="date" id="date" required>
+
+                <label for="time">
+                    Preferred Time
+                </label>
+
+
+                <select id="time">
+
+
+                    <option>
+                        Select Time
+                    </option>
+
+
+                    <option>
+                        9:00 AM
+                    </option>
+
+
+                    <option>
+                        11:00 AM
+                    </option>
+
+
+                    <option>
+                        1:00 PM
+                    </option>
+
+
+                    <option>
+                        3:00 PM
+                    </option>
+
+
+                    <option>
+                        5:00 PM
+                    </option>
+
+
+                </select>
+
+
+
+                <label for="message">
+                    Additional Information
+                </label>
+
+
+                <textarea id="message" rows="5" placeholder="Tell us anything we should know">
+            </textarea>
+
+
+
+                <button type="submit">
+                    Confirm Booking
+                </button>
+
+
+            </form>
+
+
+
+
+
+
+            <!-- Booking Information -->
+
+
+            <div class="booking-info">
+
+
+                <h2>
+                    Visit Us
+                </h2>
+
+
+                <p>
+                    Conniecomes Beauty Salon provides professional
+                    beauty services and quality hair products.
+                </p>
+
+
+                <h3>
+                    Opening Hours
+                </h3>
+
+
+                <p>
+                    Monday - Saturday<br>
+                    9:00 AM - 6:00 PM
+                </p>
+
+
+
+                <h3>
+                    Services Available
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        Wig Installation
+                    </li>
+
+
+                    <li>
+                        Wig Revamping
+                    </li>
+
+
+                    <li>
+                        Hair Treatments
+                    </li>
+
+
+                    <li>
+                        Manicure & Pedicure
+                    </li>
+
+
+                    <li>
+                        Makeup Services
+                    </li>
+
+                </ul>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+
+        <h3>
+            Conniecomes Beauty Salon
+        </h3>
+
+
+        <p>
+            Beauty • Confidence • Elegance
+        </p>
+
+
+
+
+        <div class="footer-links">
+
+
+            <a href="../index.html">
+                Home
+            </a>
+
+
+            <a href="services.html">
+                Services
+            </a>
+
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+
+            <a href="booking.html">
+                Booking
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="contact.html">Contact</a>
+
 
         </div>
 
 
 
 
-    </div>
-
-
-</section>
-
-
+        <p class="copyright">
+            © 2026 Conniecomes Beauty Salon. All Rights Reserved.
+        </p>
 
 
 
-
-
-
-<!-- Footer -->
-
-<footer>
-
-
-    <h3>
-        Conniecomes Beauty Salon
-    </h3>
-
-
-    <p>
-        Beauty • Confidence • Elegance
-    </p>
-
-
-
-
-    <div class="footer-links">
-
-
-        <a href="../index.html">
-            Home
-        </a>
-
-
-        <a href="services.html">
-            Services
-        </a>
-
-
-        <a href="shop.html">
-            Shop
-        </a>
-
-
-        <a href="booking.html">
-            Booking
-        </a>
-
-        <a href="login.html">
-            Login
-        </a>
-
-        <a href="contact.html">Contact</a>
-
-
-    </div>
-
-
-
-
-    <p class="copyright">
-        © 2026 Conniecomes Beauty Salon. All Rights Reserved.
-    </p>
-
-
-
-</footer>
+    </footer>
 
 
 
