@@ -1,0 +1,137 @@
+@media(max-width:1100px){
+  .footer-main{
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+  }
+
+  .footer-contact{
+    grid-column:2/-1;
+  }
+}
+
+@media(max-width:900px){
+  .nav{
+    display:none;
+    position:absolute;
+    top:82px;
+    left:0;
+    right:0;
+    background:var(--cream);
+    padding:20px 7%;
+    flex-direction:column;
+    align-items:flex-start;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 15px 30px rgba(0,0,0,.06);
+  }
+
+  .nav.open{display:flex}
+
+  .menu-toggle{display:block}
+
+  .hero,
+  .split{
+    grid-template-columns:1fr;
+  }
+
+  .hero{padding-top:50px}
+
+  .hero-placeholder{min-height:400px}
+
+  .category-grid,
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-main{
+    grid-template-columns:repeat(2,1fr);
+    padding:55px 7% 40px;
+  }
+
+  .footer-brand{
+    grid-column:1/-1;
+    max-width:500px;
+  }
+
+  .footer-contact{grid-column:auto}
+
+  .footer-newsletter{
+    display:block;
+    margin:0 7%;
+    padding:38px 0;
+  }
+
+  .newsletter-form{
+    margin-top:22px;
+    min-width:0;
+  }
+
+  .footer-trust{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:560px){
+  .category-grid,
+  .product-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{font-size:48px}
+
+  .section-heading{display:block}
+
+  .form-grid{grid-template-columns:1fr}
+
+  .cart-row{
+    grid-template-columns:75px 1fr;
+  }
+
+  .cart-row>*:nth-child(n+3){
+    grid-column:2;
+  }
+
+  .section,
+  .page{
+    padding:55px 6%;
+  }
+
+  .image-placeholder{min-height:270px}
+}
+
+@media(max-width:500px){
+  .footer-main{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .footer-brand,
+  .footer-contact{
+    grid-column:auto;
+  }
+
+  .footer-newsletter h3{font-size:25px}
+
+  .newsletter-form{display:block}
+
+  .newsletter-form input,
+  .newsletter-form .btn{
+    width:100%;
+    border:1px solid rgba(255,255,255,.18);
+  }
+
+  .newsletter-form .btn{
+    margin-top:8px;
+    padding:13px;
+  }
+
+  .footer-trust{
+    grid-template-columns:1fr;
+    padding:25px 7%;
+  }
+
+  .footer-bottom{display:block}
+
+  .footer-bottom div{
+    margin-top:12px;
+    gap:12px;
+  }
+}

@@ -1,0 +1,97 @@
+.section{padding:90px 7%}
+
+.section-white{background:var(--white)}
+
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:30px;
+}
+
+.section h2{
+  font:500 45px/1.1 "Playfair Display",Georgia,serif;
+  margin:5px 0;
+}
+
+.section-heading>a{
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--rose-dark);
+}
+
+.category-grid,
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.category-card{
+  background:var(--white);
+  border:1px solid var(--line);
+  padding-bottom:20px;
+  transition:.3s;
+  box-shadow:0 7px 25px rgba(35,25,20,.04);
+}
+
+.category-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+}
+
+.category-card .image-placeholder{min-height:340px}
+
+.category-card h3,
+.category-card p{margin:10px 17px}
+
+.category-card h3{
+  font:500 24px "Playfair Display",Georgia,serif;
+}
+
+.category-card p{
+  font-size:11px;
+  color:#81746a;
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:75px;
+  align-items:center;
+  background:var(--cream-2);
+}
+
+.split p:not(.eyebrow){
+  max-width:560px;
+  color:var(--ink-soft);
+}
+
+.tall{min-height:540px}
+
+.page{
+  padding:75px 7%;
+  min-height:70vh;
+}
+
+.page-header{
+  text-align:center;
+  max-width:800px;
+  margin:0 auto 48px;
+}
+
+.page-header h1{
+  font:500 clamp(44px,5vw,64px)/1.05 "Playfair Display",Georgia,serif;
+  margin:10px;
+}
+
+.page-header p:not(.eyebrow){color:var(--ink-soft)}
+
+.filters{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+}

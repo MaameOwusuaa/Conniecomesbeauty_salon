@@ -1,275 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Services | Conniecomes Beauty Salon</title>
-    <script src="https://kit.fontawesome.com/54e6b76ccd.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../src/style.css">
-    <script src="../src/main.js" defer></script>
-</head>
-
-
-<body>
-
-
-    <!-- Header -->
-    <header>
-
-        <nav class="navbar">
-
-            <div class="logo">
-                Conniecomes Beauty Salon
-            </div>
-
-
-            <ul class="nav-links">
-
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="booking.html">Book now</a>
-                <li>
-                <li><a href="login.html">Login/Signup</a></li>
-                <li><i class="fa-solid fa-cart-shopping fa-bounce" style="color: rgb(197, 64, 152);"></i></li>
-            </ul>
-
-
-            </ul>
-
-
-            <div class="menu-icon">
-                ☰
-            </div>
-
-
-        </nav>
-
+    <link rel="stylesheet" href="../src/css/main.css">
+  </head>
+  <body>
+    <div class="announcement">Premium wigs • Hair services • Appointments</div>
+    <header class="site-header">
+      <a class="logo" href="../index.html">CONNIECOMES<span>BEAUTY SALON</span></a>
+      <button class="menu-toggle">☰</button>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="account.html">Account</a>
+        <a class="cart-link" href="cart.html">Cart <b id="cartCount">0</b></a>
+      </nav>
     </header>
-
-
-
-
-    <!-- Services Hero -->
-
-    <section class="page-banner">
-
-        <h1>
-            Our Beauty Services
-        </h1>
-
-        <p>
-            Professional beauty treatments designed to enhance your confidence and style.
-        </p>
-
-    </section>
-
-
-
-
-
-
-    <!-- Services Section -->
-
-    <section class="all-services">
-
-
-        <div class="service-grid">
-
-
-
-            <div class="service-box">
-
-                <img src="/images/Frontal_installation.png" alt="Wig installation">
-                <h2>
-                    Wig Installation
-                </h2>
-
-                <p>
-                    Get a flawless and natural-looking wig installation
-                    that complements your beauty and style.
-                </p>
-
-            </div>
-
-
-
-
-
-            <div class="service-box">
-
-                <img src="/images/revamped wig.jpg" alt="Wig revamping">
-
-                <h2>
-                    Wig Revamping
-                </h2>
-
-                <p>
-                    Restore your old wigs and bring them back to life
-                    with professional cleaning, styling and maintenance.
-                </p>
-
-            </div>
-
-
-
-
-
-            <div class="service-box">
-
-                <img src="/images/Braids.png" alt="Braids">
-
-                <h2>
-                    Braids
-                </h2>
-
-                <p>
-                    We offer protective hairstyles in various lenghths,
-                    styles and colours.
-                </p>
-
-            </div>
-
-
-
-
-
-            <div class="service-box">
-
-                <img src="/images/wigcap copy.jpg" alt="Custom wig">
-
-                <h2>
-                    Custom Wig Making
-                </h2>
-
-                <p>
-                    Handmade wigs created according to your preferred
-                    style, size and personality.
-                </p>
-
-            </div>
-
-
-
-
-
-            <div class="service-box">
-
-                <img src="/images/Manicure.png" alt="Manicure">
-
-                <h2>
-                    Manicure Services
-                </h2>
-
-                <p>
-                    Beautiful nail care services that leave your hands
-                    looking elegant and polished.
-                </p>
-
-            </div>
-
-
-
-
-
-            <div class="service-box">
-
-                <img src="/images/Pedicure.png" alt="Pedicure">
-
-                <h2>
-                    Pedicure Services
-                </h2>
-
-                <p>
-                    Relaxing professional pedicure treatments for
-                    healthy and beautiful feet.
-                </p>
-
-            </div>
-
-
-
-
-
-
-
+    <main class="page">
+      <div class="page-header">
+        <p class="eyebrow">Salon menu</p>
+        <h1>Services</h1>
+        <p>Professional beauty services designed around your style.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+        <div class="image-frame">
+          <img src="/images/Braids.png" alt="Hair Braiding placeholder">
         </div>
+          <div class="product-info">
+            <h3>Hair Braiding</h3>
+            <p class="muted">Professional Conniecomes service.</p>
+            <a class="btn" href="booking.html">Book</a>
+          </div>
+        </article>
+        <article class="product-card">
+            <div class="image-frame">
+              <img src="/images/Frontal_installation.png" alt="Frontal Installation placeholder">
+            </div>
+              <div class="product-info">
+                <h3>Frontal Installation</h3>
+                <p class="muted">Professional Conniecomes service.</p>
+                <a class="btn" href="booking.html">Book</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="image-frame">
+                <img src="/images/custom made wigs.jpg" alt="Custom Wig Making placeholder">
+              </div>
+              <div class="product-info">
+                <h3>Custom Wig Making</h3>
+                <p class="muted">Professional Conniecomes service.</p>
+                <a class="btn" href="booking.html">Book</a>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="image-frame">
+                <img src="/images/Manicure.png" alt="Manicure placeholder">
+              </div>
+              <div class="product-info">
+                <h3>Manicure</h3>
+                <p class="muted">Professional Conniecomes service.</p>
+                <a class="btn" href="booking.html">Book</a>
+              </div>
+            </article>
+            <article class="product-card">
+                <div class="image-frame">
+                  <img src="/images/Pedicure.png" alt="Pedicure placeholder">
+                </div>
+                <div class="product-info">
+                  <h3>Pedicure</h3>
+                  <p class="muted">Professional Conniecomes service.</p>
+                  <a class="btn" href="booking.html">Book</a>
+                </div>
+              </article>
+            </div>
+          </main>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a class="footer-logo" href="../index.html">CONNIECOMES<span>BEAUTY SALON</span></a>
+      <p>Premium wigs, beautiful hair and professional salon services designed to make every client feel confident, polished and effortlessly beautiful.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="https://web.facebook.com/" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="WhatsApp">WA</a>
+      </div>
+    </div>
 
+    <div class="footer-column">
+      <h4>Shop</h4>
+      <a href="shop.html">All Products</a>
+      <a href="category.html?category=wigs">Wigs</a>
+      <a href="category.html?category=frontals">Frontals</a>
+      <a href="category.html?category=closures">Closures</a>
+      <a href="category.html?category=straight">Straight Hair</a>
+      <a href="category.html?category=curly">Curly Hair</a>
+    </div>
 
-    </section>
+    <div class="footer-column">
+      <h4>Beauty Services</h4>
+      <a href="services.html">Hair Braiding</a>
+      <a href="services.html">Frontal Installation</a>
+      <a href="services.html">Custom Wig Making</a>
+      <a href="services.html">Hair Treatments</a>
+      <a href="services.html">Manicure</a>
+      <a href="services.html">Pedicure</a>
+      <a href="booking.html">Book an Appointment</a>
+    </div>
 
+    <div class="footer-column">
+      <h4>Customer Care</h4>
+      <a href="contact.html">Contact Us</a>
+      <a href="account.html">My Account</a>
+      <a href="cart.html">Shopping Cart</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="about.html">About Conniecomes</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Returns & Exchanges</a>
+    </div>
 
+    <div class="footer-contact">
+      <h4>Visit & Connect</h4>
+      <p><strong>Salon</strong><br>Kwabenya, Mususku Junction<br>On the main road, Ghana</p>
+      <p><strong>Opening Hours</strong><br>Mon – Sat · 9:00 AM – 6:00 PM</p>
+      <p><strong>Contact</strong><br>+233 XX XXX XXXX<br>hello@conniecomes.com</p>
+    </div>
+  </div>
 
+  <div class="footer-newsletter">
+    <div>
+      <p class="eyebrow">Stay in the know</p>
+      <h3>Beauty news, new drops & exclusive offers.</h3>
+      <p>Join our mailing list for product launches, salon updates and special offers.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+      <input type="email" placeholder="Enter your email address" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </div>
 
+  <div class="footer-trust">
+    <div class="trust-item"><span>✓</span><div><strong>Secure Shopping</strong><small>Protected checkout</small></div></div>
+    <div class="trust-item"><span>✓</span><div><strong>Quality Hair</strong><small>Curated products</small></div></div>
+    <div class="trust-item"><span>✓</span><div><strong>Flexible Payments</strong><small>Card & Mobile Money</small></div></div>
+    <div class="trust-item"><span>✓</span><div><strong>Salon Support</strong><small>We're here to help</small></div></div>
+  </div>
 
-
-
-    <!-- Booking CTA -->
-
-    <section class="booking-banner">
-
-        <h2>
-            Book Your Beauty Appointment Today
-        </h2>
-
-
-        <p>
-            Let our professionals create the perfect look for you.
-        </p>
-
-
-        <a href="booking.html" class="btn">
-            Book Now
-        </a>
-
-
-    </section>
-
-
-
-
-
-
-    <!-- Footer -->
-
-    <footer>
-
-
-        <h3>
-            Conniecomes Beauty Salon
-        </h3>
-
-
-        <p>
-            Beauty • Confidence • Elegance
-        </p>
-
-
-        <div class="footer-links">
-            <a href="../index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="booking.html">Book Now</a>
-            <a href="login.html">Login/Signup</a>
-        </div>
-
-
-
-        <p class="copyright">
-            © 2026 Conniecomes Beauty Salon. All Rights Reserved.
-        </p>
-
-
-    </footer>
-
-    <script src="src/main.js"></script>
-
-
+  <div class="footer-bottom">
+    <p>© 2026 Conniecomes Beauty Salon. All rights reserved.</p>
+    <div><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Shipping Policy</a></div>
+  </div>
+</footer>
+<script type="module" src="../src/js/app.js"></script>
 </body>
-
 </html>
