@@ -227,6 +227,18 @@ function initializePaymentVerification() {
         return;
     }
 
+    const returnParams = new URLSearchParams(window.location.search);
+    const returnStatus = (returnParams.get("status") || "").toLowerCase();
+    const cancelledFlag = (returnParams.get("cancelled") || returnParams.get("canceled") || "").toLowerCase();
+    if (["cancelled", "canceled"].includes(returnStatus) || ["true", "1"].includes(cancelledFlag)) {
+        showPaymentError("You cancelled the payment. No payment was confirmed. Return to checkout if you would like to try again.", "Payment Cancelled");
+        return;
+    }
+    if (["failed", "failure", "error"].includes(returnStatus)) {
+        showPaymentError("The payment was declined or could not be completed. Check with your bank or mobile money provider, then try again.", "Payment Unsuccessful");
+        return;
+    }
+
 
     const paymentId =
         localStorage.getItem(
@@ -335,6 +347,15 @@ async function verifyPayment(
             );
         }
 
+        // Honor an explicit provider status if the API includes one.
+        const verifiedStatus = String(data.status || data.payment?.status || "").toLowerCase();
+        if (verifiedStatus && !["success", "successful", "paid", "completed"].includes(verifiedStatus)) {
+            const failed = ["failed", "failure", "declined", "cancelled", "canceled"].includes(verifiedStatus);
+            throw new Error(failed
+                ? "The payment was declined or cancelled. No payment was confirmed. Please return to checkout to try again."
+                : "Your payment is still being processed. Please wait and check again before trying another payment.");
+        }
+
 
         if (paymentLoading) {
 
@@ -414,7 +435,8 @@ async function verifyPayment(
 // ============================================================
 
 function showPaymentError(
-    message
+    message,
+    title = "Payment Could Not Be Confirmed"
 ) {
 
     const paymentLoading =
@@ -464,14 +486,14 @@ function showPaymentError(
     if (paymentTitle) {
 
         paymentTitle.textContent =
-            "Payment Verification Failed";
+            title;
     }
 
 
     if (paymentMessage) {
 
         paymentMessage.textContent =
-            "We could not confirm your payment.";
+            "Your order is not confirmed until payment succeeds.";
     }
 
 
