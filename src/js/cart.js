@@ -1,6 +1,13 @@
 import { API_BASE_URL } from "./config.js";
-import { getToken } from "./auth.js";
+import { getGuestSessionId } from "./guest-session.js";
 import { escapeHTML, escapeAttribute, money } from "./utils.js";
+
+async function cartRequest(url, options = {}) {
+    const headers = new Headers(options.headers || {});
+    headers.delete("Authorization");
+    headers.set("X-Guest-Session", getGuestSessionId());
+    return fetch(url, { ...options, headers });
+}
 
 // ============================================================
 // ADD TO CART BUTTONS
@@ -9,49 +16,20 @@ import { escapeHTML, escapeAttribute, money } from "./utils.js";
 // ============================================================
 
 function initializeAddToCartButtons() {
+    document.addEventListener("click", async function (event) {
+        const button = event.target.closest(".add-to-cart");
+        if (!button) return;
 
-    const buttons =
-        document.querySelectorAll(
-            ".add-to-cart"
-        );
-
-
-    if (!buttons.length) {
-        return;
-    }
-
-
-    buttons.forEach(
-        function (button) {
-
-            button.addEventListener(
-                "click",
-                async function () {
-
-                    const productId =
-                        Number(
-                            button.dataset.productId
-                        );
-
-
-                    if (!productId) {
-
-                        console.error(
-                            "Product ID is missing."
-                        );
-
-                        return;
-                    }
-
-
-                    await addToCart(
-                        productId,
-                        button
-                    );
-                }
-            );
+        const productId = Number(button.dataset.productId);
+        if (!productId) {
+            console.error("Product ID is missing.");
+            return;
         }
-    );
+
+        const variantId = button.dataset.variantId ? Number(button.dataset.variantId) : null;
+        const quantity = Number(button.dataset.quantity || 1);
+        await addToCart(productId, button, variantId, quantity);
+    });
 }
 
 
@@ -61,27 +39,10 @@ function initializeAddToCartButtons() {
 
 async function addToCart(
     productId,
-    button
+    button,
+    variantId = null,
+    quantity = 1
 ) {
-
-    const token =
-        getToken();
-
-
-    if (!token) {
-
-        alert(
-            "Please sign in before adding products to your cart."
-        );
-
-
-        window.location.href =
-            "account.html";
-
-
-        return;
-    }
-
 
     if (button) {
 
@@ -96,7 +57,7 @@ async function addToCart(
     try {
 
         const response =
-            await fetch(
+            await cartRequest(
                 `${API_BASE_URL}/cart/items`,
                 {
                     method: "POST",
@@ -106,8 +67,7 @@ async function addToCart(
                         "Content-Type":
                             "application/json",
 
-                        "Authorization":
-                            `Bearer ${token}`
+
                     },
 
                     body: JSON.stringify({
@@ -115,8 +75,11 @@ async function addToCart(
                         product_id:
                             productId,
 
+                        variant_id:
+                            variantId,
+
                         quantity:
-                            1
+                            quantity
                     })
                 }
             );
@@ -207,34 +170,15 @@ async function updateCartCount() {
     }
 
 
-    const token =
-        getToken();
-
-
-    if (!token) {
-
-        cartCountElements.forEach(
-            function (element) {
-
-                element.textContent =
-                    "0";
-            }
-        );
-
-        return;
-    }
-
-
     try {
 
         const response =
-            await fetch(
+            await cartRequest(
                 `${API_BASE_URL}/cart`,
                 {
                     headers: {
 
-                        "Authorization":
-                            `Bearer ${token}`
+
                     }
                 }
             );
@@ -322,36 +266,15 @@ async function loadCartPage() {
     }
 
 
-    const token =
-        getToken();
-
-
-    if (!token) {
-
-        cartElement.innerHTML = `
-            <div class="notice">
-                Please
-                <a href="account.html">
-                    sign in
-                </a>
-                to view your cart.
-            </div>
-        `;
-
-        return;
-    }
-
-
     try {
 
         const response =
-            await fetch(
+            await cartRequest(
                 `${API_BASE_URL}/cart`,
                 {
                     headers: {
 
-                        "Authorization":
-                            `Bearer ${token}`
+
                     }
                 }
             );
@@ -441,11 +364,14 @@ function renderCart(cart) {
                 const product =
                     item.product || {};
 
+                const variant =
+                    item.variant || null;
+
 
                 const price =
-                    Number(
-                        product.price || 0
-                    );
+                    variant && variant.price !== null
+                        ? Number(variant.price)
+                        : Number(product.price || 0);
 
 
                 const quantity =
@@ -462,12 +388,10 @@ function renderCart(cart) {
 
 
                 const image =
-                    product.image_url &&
-                    !product.image_url.includes(
-                        "example.com"
-                    )
+                    variant?.images?.[0]?.image_url ||
+                    (product.image_url && !product.image_url.includes("example.com")
                         ? product.image_url
-                        : "https://placehold.co/900x1100/d4b6a8/ffffff?text=Wig";
+                        : "https://placehold.co/900x1100/d4b6a8/ffffff?text=Wig");
 
 
                 return `
@@ -495,6 +419,8 @@ function renderCart(cart) {
                                 )}
                             </h3>
 
+                            ${variant ? `<p class="muted">${escapeHTML(variant.color)} · ${Number(variant.length_inches)} inches</p>` : ""}
+
                             <div>
                                 ${money(price)}
                             </div>
@@ -507,7 +433,7 @@ function renderCart(cart) {
                             <button
                                 type="button"
                                 class="quantity-decrease"
-                                data-product-id="${item.product_id}"
+                                data-cart-item-id="${item.id}"
                                 data-quantity="${quantity - 1}"
                             >
                                 −
@@ -522,7 +448,7 @@ function renderCart(cart) {
                             <button
                                 type="button"
                                 class="quantity-increase"
-                                data-product-id="${item.product_id}"
+                                data-cart-item-id="${item.id}"
                                 data-quantity="${quantity + 1}"
                             >
                                 +
@@ -539,7 +465,7 @@ function renderCart(cart) {
                         <button
                             type="button"
                             class="remove-cart-item filter"
-                            data-product-id="${item.product_id}"
+                            data-cart-item-id="${item.id}"
                         >
                             Remove
                         </button>
@@ -634,9 +560,9 @@ function initializeCartButtons() {
                 "click",
                 async function () {
 
-                    const productId =
+                    const cartItemId =
                         Number(
-                            button.dataset.productId
+                            button.dataset.cartItemId
                         );
 
 
@@ -647,7 +573,7 @@ function initializeCartButtons() {
 
 
                     await updateCartItem(
-                        productId,
+                        cartItemId,
                         quantity
                     );
                 }
@@ -669,9 +595,9 @@ function initializeCartButtons() {
                 "click",
                 async function () {
 
-                    const productId =
+                    const cartItemId =
                         Number(
-                            button.dataset.productId
+                            button.dataset.cartItemId
                         );
 
 
@@ -682,7 +608,7 @@ function initializeCartButtons() {
 
 
                     await updateCartItem(
-                        productId,
+                        cartItemId,
                         quantity
                     );
                 }
@@ -704,14 +630,14 @@ function initializeCartButtons() {
                 "click",
                 async function () {
 
-                    const productId =
+                    const cartItemId =
                         Number(
-                            button.dataset.productId
+                            button.dataset.cartItemId
                         );
 
 
                     await removeCartItem(
-                        productId
+                        cartItemId
                     );
                 }
             );
@@ -725,28 +651,15 @@ function initializeCartButtons() {
 // ============================================================
 
 async function updateCartItem(
-    productId,
+    cartItemId,
     quantity
 ) {
 
     if (quantity < 1) {
 
         await removeCartItem(
-            productId
+            cartItemId
         );
-
-        return;
-    }
-
-
-    const token =
-        getToken();
-
-
-    if (!token) {
-
-        window.location.href =
-            "account.html";
 
         return;
     }
@@ -755,15 +668,14 @@ async function updateCartItem(
     try {
 
         const response =
-            await fetch(
-                `${API_BASE_URL}/cart/items/${productId}`,
+            await cartRequest(
+                `${API_BASE_URL}/cart/items/${cartItemId}`,
                 {
                     method: "PUT",
 
                     headers: {
 
-                        "Authorization":
-                            `Bearer ${token}`,
+
 
                         "Content-Type":
                             "application/json"
@@ -817,34 +729,20 @@ async function updateCartItem(
 // ============================================================
 
 async function removeCartItem(
-    productId
+    cartItemId
 ) {
-
-    const token =
-        getToken();
-
-
-    if (!token) {
-
-        window.location.href =
-            "account.html";
-
-        return;
-    }
-
 
     try {
 
         const response =
-            await fetch(
-                `${API_BASE_URL}/cart/items/${productId}`,
+            await cartRequest(
+                `${API_BASE_URL}/cart/items/${cartItemId}`,
                 {
                     method: "DELETE",
 
                     headers: {
 
-                        "Authorization":
-                            `Bearer ${token}`
+
                     }
                 }
             );

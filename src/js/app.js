@@ -4,24 +4,8 @@
 // ============================================================
 
 import {
-    updateAuthUI
-} from "./auth.js";
-
-import {
-    initializeAccountPage
-} from "./account.js";
-
-import {
     initializeNavigation
 } from "./navigation.js";
-
-import {
-    initializeLogin
-} from "./login.js";
-
-import {
-    initializeSignup
-} from "./signup.js";
 
 import {
     initializeAddToCartButtons,
@@ -45,6 +29,9 @@ import {
     initializeCategoryPage
 } from "./category.js";
 
+import { initializeBookingPage } from "./booking-page.js";
+import { initializeCatalogPages } from "./catalog.js";
+
 
 
 console.log(
@@ -64,17 +51,12 @@ document.addEventListener(
         // GLOBAL UI
         // ----------------------------------------------------
 
-        updateAuthUI();
         initializeNavigation();
 
 
         // ----------------------------------------------------
         // AUTHENTICATION
         // ----------------------------------------------------
-
-        initializeLogin();
-        initializeSignup();
-        initializeAccountPage();
 
 
         // ----------------------------------------------------
@@ -100,12 +82,14 @@ document.addEventListener(
         initializeNewsletterForms();
         initializeSimpleForms();
         initializePaymentMethod();
+        initializeBookingPage();
 
 
         // ----------------------------------------------------
         // CATEGORY PAGE
         // ----------------------------------------------------
 
+        initializeCatalogPages();
         initializeCategoryPage();
 
 

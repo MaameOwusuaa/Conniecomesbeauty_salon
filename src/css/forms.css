@@ -55,3 +55,21 @@
   margin-bottom:20px;
   color:var(--ink-soft);
 }
+
+.notice.error{
+  background:#f8e9e5;
+  border-left-color:#8d4037;
+  color:#8d4037;
+}
+
+.admin-signin{
+  margin:14px 0 0;
+  text-align:center;
+  font-size:12px;
+}
+
+.admin-signin a{
+  color:var(--ink-soft);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}

@@ -217,3 +217,15 @@
 }
 
 .footer-bottom a:hover{color:#fff}
+
+.footer-admin-row{
+  padding:0 7% 18px;
+  text-align:center;
+}
+
+.footer-admin-link{
+  color:#817a74;
+  font-size:11px;
+}
+
+.footer-admin-link:hover{color:#fff}

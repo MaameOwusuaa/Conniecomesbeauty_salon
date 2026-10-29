@@ -4,6 +4,6 @@
 // ============================================================
 
 const API_BASE_URL =
-    "http://127.0.0.1:8000";
+    "https://conniecomesbackend-ge40c17dx-owusuaa.vercel.app";
 
 export { API_BASE_URL };

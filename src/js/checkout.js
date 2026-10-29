@@ -1,6 +1,13 @@
 import { API_BASE_URL } from "./config.js";
-import { getToken } from "./auth.js";
+import { getGuestSessionId } from "./guest-session.js";
 import { updateCartCount } from "./cart.js";
+
+async function guestRequest(url, options = {}) {
+    const headers = new Headers(options.headers || {});
+    headers.delete("Authorization");
+    headers.set("X-Guest-Session", getGuestSessionId());
+    return fetch(url, { ...options, headers });
+}
 
 // ============================================================
 // CHECKOUT
@@ -37,25 +44,6 @@ async function createOrder(
     event.preventDefault();
 
 
-    const token =
-        getToken();
-
-
-    if (!token) {
-
-        alert(
-            "Please log in before checking out."
-        );
-
-
-        window.location.href =
-            "account.html";
-
-
-        return;
-    }
-
-
     const checkoutForm =
         event.currentTarget;
 
@@ -77,18 +65,23 @@ async function createOrder(
 
 
     try {
+        const formData = new FormData(checkoutForm);
 
         const orderResponse =
-            await fetch(
+            await guestRequest(
                 `${API_BASE_URL}/orders`,
                 {
                     method: "POST",
 
-                    headers: {
-
-                        "Authorization":
-                            `Bearer ${token}`
-                    }
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        customer_name: `${formData.get("first_name")} ${formData.get("last_name")}`.trim(),
+                        customer_email: formData.get("email"),
+                        customer_phone: formData.get("phone"),
+                        delivery_address: formData.get("delivery_address"),
+                        region: formData.get("region"),
+                        delivery_option: formData.get("delivery_option"),
+                    }),
                 }
             );
 
@@ -110,6 +103,7 @@ async function createOrder(
             "order_id",
             order.id
         );
+        localStorage.setItem("guest_access_token", order.guest_access_token);
 
 
         if (button) {
@@ -120,7 +114,7 @@ async function createOrder(
 
 
         const paymentResponse =
-            await fetch(
+            await guestRequest(
                 `${API_BASE_URL}/payments`,
                 {
                     method: "POST",
@@ -130,8 +124,6 @@ async function createOrder(
                         "Content-Type":
                             "application/json",
 
-                        "Authorization":
-                            `Bearer ${token}`
                     },
 
                     body: JSON.stringify({
@@ -140,7 +132,10 @@ async function createOrder(
                             order.id,
 
                         payment_method:
-                            "card"
+                            "card",
+
+                        guest_access_token:
+                            order.guest_access_token
                     })
                 }
             );
@@ -233,10 +228,6 @@ function initializePaymentVerification() {
     }
 
 
-    const token =
-        getToken();
-
-
     const paymentId =
         localStorage.getItem(
             "payment_id"
@@ -249,10 +240,7 @@ function initializePaymentVerification() {
         );
 
 
-    if (
-        !token ||
-        !paymentId
-    ) {
+    if (!paymentId || !localStorage.getItem("guest_access_token")) {
 
         showPaymentError(
             "Payment information is missing. Please return to checkout."
@@ -263,7 +251,6 @@ function initializePaymentVerification() {
 
 
     verifyPayment(
-        token,
         paymentId,
         orderId
     );
@@ -275,7 +262,6 @@ function initializePaymentVerification() {
 // ============================================================
 
 async function verifyPayment(
-    token,
     paymentId,
     orderId
 ) {
@@ -325,15 +311,13 @@ async function verifyPayment(
     try {
 
         const response =
-            await fetch(
+            await guestRequest(
                 `${API_BASE_URL}/payments/${paymentId}/verify`,
                 {
                     method: "POST",
 
                     headers: {
-
-                        "Authorization":
-                            `Bearer ${token}`
+                        "X-Guest-Access-Token": localStorage.getItem("guest_access_token"),
                     }
                 }
             );

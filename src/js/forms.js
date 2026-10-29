@@ -2,6 +2,9 @@
 // NEWSLETTER
 // ============================================================
 
+import { API_BASE_URL } from "./config.js";
+
+
 function initializeNewsletter() {
 
     const newsletterForm =
@@ -78,43 +81,39 @@ function initializeSimpleForms() {
 
         contactForm.addEventListener(
             "submit",
-            function (event) {
-
+            async function (event) {
                 event.preventDefault();
 
-                alert(
-                    "Message ready to connect to your backend."
-                );
-            }
-        );
-    }
+                const status = document.getElementById("contactFormStatus");
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const formData = new FormData(contactForm);
+                submitButton.disabled = true;
+                status.textContent = "Sending your message...";
+                status.classList.remove("hidden", "error");
 
+                try {
+                    const response = await fetch(`${API_BASE_URL}/contact-messages`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name: formData.get("name").trim(),
+                            email: formData.get("email").trim(),
+                            message: formData.get("message").trim(),
+                        }),
+                    });
+                    const data = await response.json().catch(() => ({}));
+                    if (!response.ok) {
+                        throw new Error(data.detail || "Unable to send your message. Please try again.");
+                    }
 
-    const bookingForm =
-        document.querySelector(
-            ".js-booking-form"
-        );
-
-
-    if (bookingForm) {
-
-        bookingForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-                const status =
-                    document.getElementById(
-                        "bookingStatus"
-                    );
-
-
-                if (status) {
-
-                    status.classList.remove(
-                        "hidden"
-                    );
+                    contactForm.reset();
+                    status.textContent = "Your message has been sent. We’ll be in touch soon.";
+                } catch (error) {
+                    status.textContent = error.message;
+                    status.classList.add("error");
+                } finally {
+                    status.classList.remove("hidden");
+                    submitButton.disabled = false;
                 }
             }
         );

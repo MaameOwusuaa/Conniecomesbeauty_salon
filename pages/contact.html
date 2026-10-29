@@ -17,7 +17,7 @@
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="account.html">Account</a>
+        <a href="booking.html">Book an appointment</a>
         <a class="cart-link" href="cart.html">Cart <b id="cartCount">0</b></a>
       </nav>
     </header>
@@ -27,20 +27,21 @@
         <h1>Contact us</h1>
         <p>Have a question about a product, order or appointment?</p>
       </div>
-      <form class="form" onsubmit="event.preventDefault(); alert('Message ready to connect to your backend.')">
+      <form class="form js-contact-form">
         <div class="field">
-          <label>Name</label>
-          <input required>
+          <label for="contactName">Name</label>
+          <input id="contactName" name="name" autocomplete="name" required maxlength="150">
         </div>
         <div class="field">
-          <label>Email</label>
-          <input type="email" required>
+          <label for="contactEmail">Email</label>
+          <input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="255">
         </div>
         <div class="field">
-          <label>Message</label>
-          <textarea required></textarea>
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" required maxlength="5000"></textarea>
         </div>
-        <button class="btn">Send message</button>
+        <button class="btn" type="submit">Send message</button>
+        <p id="contactFormStatus" class="notice hidden" role="status" aria-live="polite"></p>
       </form>
     </main>
     <footer class="site-footer">
@@ -59,7 +60,7 @@
     <div class="footer-column">
       <h4>Shop</h4>
       <a href="shop.html">All Products</a>
-      <a href="category.html?category=wigs">Wigs</a>
+      <a href="category.html?category=wigs">Custom Made Wig Caps</a>
       <a href="category.html?category=frontals">Frontals</a>
       <a href="category.html?category=closures">Closures</a>
       <a href="category.html?category=straight">Straight Hair</a>
@@ -80,7 +81,7 @@
     <div class="footer-column">
       <h4>Customer Care</h4>
       <a href="contact.html">Contact Us</a>
-      <a href="account.html">My Account</a>
+      <a href="contact.html">Contact Us</a>
       <a href="cart.html">Shopping Cart</a>
       <a href="checkout.html">Checkout</a>
       <a href="about.html">About Conniecomes</a>
@@ -119,6 +120,7 @@
     <p>© 2026 Conniecomes Beauty Salon. All rights reserved.</p>
     <div><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Shipping Policy</a></div>
   </div>
+  <div class="footer-admin-row"><a class="footer-admin-link" href="admin-login.html">Admin sign in</a></div>
 </footer>
 <script type="module" src="../src/js/app.js"></script>
 </body>

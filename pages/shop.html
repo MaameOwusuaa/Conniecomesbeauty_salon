@@ -67,7 +67,7 @@
         Contact
       </a>
 
-      <a href="account.html">
+      <a href="booking.html">
         Account
       </a>
 
@@ -104,71 +104,59 @@
     </div>
 
 
-    <!-- Product Filters -->
-    <div class="filters">
+    <div class="catalog-layout">
+      <aside class="catalog-sidebar">
+        <div class="filter-panel">
+          <p class="eyebrow">Filter by</p>
 
-      <a
-        class="filter" 
-      href="category.html?category=all">
-        All
-      </a>
+          <div class="filter-group">
+            <label for="typeFilter">Type</label>
+            <select id="typeFilter" class="filter-select">
+              <option value="all">All types</option>
+              <option value="wig-cap">Wig Caps</option>
+              <option value="frontal">Frontals</option>
+              <option value="closure">Closures</option>
+              <option value="bundle">Bundles</option>
+            </select>
+          </div>
 
-      <a
-        class="filter"
-        href="category.html?category=frontals"
-      >
-        Frontals
-      </a>
+          <div class="filter-group">
+            <label for="priceFilter">Price</label>
+            <select id="priceFilter" class="filter-select">
+              <option value="all">All prices</option>
+              <option value="under-300">Under GHS 300</option>
+              <option value="300-500">GHS 300 - 500</option>
+              <option value="500-700">GHS 500 - 700</option>
+              <option value="700-plus">GHS 700+</option>
+            </select>
+          </div>
 
-      <a
-        class="filter"
-        href="category.html?category=closures"
-      >
-        Closures
-      </a>
+          <div class="filter-group">
+            <label for="lengthFilter">Length</label>
+            <select id="lengthFilter" class="filter-select">
+              <option value="all">All lengths</option>
+              <option value="8">8 inches</option>
+              <option value="10">10 inches</option>
+              <option value="12">12 inches</option>
+              <option value="14">14 inches</option>
+              <option value="16">16 inches</option>
+              <option value="18">18 inches</option>
+              <option value="20">20 inches</option>
+              <option value="22">22 inches</option>
+              <option value="24">24 inches</option>
+              <option value="26">26 inches</option>
+              <option value="28">28 inches</option>
+              <option value="30">30 inches</option>
+              <option value="32">32 inches</option>
+            </select>
+          </div>
+        </div>
+      </aside>
 
-      <a
-        class="filter"
-        href="category.html?category=bundles"
-      >
-        Bundles
-      </a>
-
-      <a
-        class="filter"
-        href="category.html?category=bodywave"
-      >
-        Body Wave
-      </a>
-
-      <a
-        class="filter"
-        href="category.html?category=straight"
-      >
-        Straight
-      </a>
-
-      <a
-        class="filter"
-        href="category.html?category=curly"
-      >
-        Curly
-      </a>
-
-      
-
-    </div>
-
-
-    <!-- Products -->
-
-    <div
-      class="product-grid"
-      id="productGrid"
-    >
+      <div class="product-grid" id="productGrid">
 
       <!-- Product 1 -->
-      <article class="product-card">
+      <article class="product-card" data-type="wig-cap" data-price="450" data-length="14">
 
         <div class="product-image">
 
@@ -213,9 +201,9 @@
 
 
       <!-- Product 2 -->
-      <article class="product-card">
+      <article class="product-card" data-type="wig-cap" data-price="550" data-length="18">
 
-        <div class="product-image">
+        <div class="product-image product-image--contain">
 
           <img
             src="../images/5x5 curly wigcap.jpg"
@@ -258,9 +246,9 @@
 
 
       <!-- Product 3 -->
-      <article class="product-card">
+      <article class="product-card" data-type="wig-cap" data-price="600" data-length="20">
 
-        <div class="product-image">
+        <div class="product-image product-image--contain">
 
           <img
             src="../images/5x5 bodywave wigacp.jpg"
@@ -301,6 +289,7 @@
 
       </article>
 
+      </div>
     </div>
 
   </main>
@@ -377,7 +366,7 @@
         </a>
 
         <a href="category.html?category=wigs">
-          Wigs
+          Custom Made Wig Caps
         </a>
 
         <a href="category.html?category=frontals">
@@ -448,7 +437,7 @@
           Contact Us
         </a>
 
-        <a href="account.html">
+        <a href="contact.html">
           My Account
         </a>
 
@@ -646,9 +635,63 @@
       </div>
 
     </div>
+      <div class="footer-admin-row"><a class="footer-admin-link" href="admin-login.html">Admin sign in</a></div>
 
   </footer>
 
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const typeFilter = document.getElementById('typeFilter');
+      const priceFilter = document.getElementById('priceFilter');
+      const lengthFilter = document.getElementById('lengthFilter');
+      function getProducts() {
+        return Array.from(document.querySelectorAll('.product-grid .product-card'));
+      }
+
+      function applyShopFilters() {
+        const activeType = typeFilter ? typeFilter.value : 'all';
+        const activePrice = priceFilter ? priceFilter.value : 'all';
+        const activeLength = lengthFilter ? lengthFilter.value : 'all';
+        const searchQuery = new URLSearchParams(window.location.search).get('q')?.trim().toLowerCase() || '';
+
+        getProducts().forEach(function (product) {
+          const productType = product.dataset.type || 'all';
+          const productPrice = Number(product.dataset.price || 0);
+          const productLength = Number(product.dataset.length || 0);
+          const productLengths = (product.dataset.lengths || '').split(',').map(Number);
+
+          const matchesType = activeType === 'all' || productType === activeType;
+
+          let matchesPrice = true;
+          if (activePrice !== 'all') {
+            if (activePrice === 'under-300') {
+              matchesPrice = productPrice < 300;
+            } else if (activePrice === '300-500') {
+              matchesPrice = productPrice >= 300 && productPrice <= 500;
+            } else if (activePrice === '500-700') {
+              matchesPrice = productPrice > 500 && productPrice <= 700;
+            } else if (activePrice === '700-plus') {
+              matchesPrice = productPrice > 700;
+            }
+          }
+
+          const matchesLength = activeLength === 'all' || productLength === Number(activeLength) || productLengths.includes(Number(activeLength));
+          const matchesSearch = !searchQuery || (product.dataset.search || product.textContent.toLowerCase()).includes(searchQuery);
+          product.classList.toggle('hidden', !(matchesType && matchesPrice && matchesLength && matchesSearch));
+        });
+      }
+
+      [typeFilter, priceFilter, lengthFilter].forEach(function (filter) {
+        if (filter) {
+          filter.addEventListener('change', applyShopFilters);
+        }
+      });
+
+      document.addEventListener('catalog-updated', applyShopFilters);
+      applyShopFilters();
+    });
+  </script>
 
   <!-- JavaScript -->
   <script type="module" src="../src/js/app.js"></script>

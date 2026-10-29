@@ -17,7 +17,7 @@
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="account.html">Account</a>
+        <a href="booking.html">Book an appointment</a>
         <a class="cart-link" href="cart.html">Cart <b id="cartCount">0</b></a>
       </nav>
     </header>
@@ -27,126 +27,129 @@
         <h1>Book your appointment</h1>
         <p>Choose your service and preferred date. Availability will be confirmed by the salon.</p>
       </div>
-      <form class="form" onsubmit="event.preventDefault();document.getElementById('bookingStatus').classList.remove('hidden')">
+      <form class="form js-booking-form">
         <div class="form-grid">
           <div class="field">
-            <label>Name</label>
-            <input required>
+            <label for="bookingFirstName">First name</label>
+            <input id="bookingFirstName" name="first_name" type="text" required>
           </div>
           <div class="field">
-            <label>Phone</label>
-            <input required>
+            <label for="bookingLastName">Last name</label>
+            <input id="bookingLastName" name="last_name" type="text" required>
           </div>
           <div class="field full">
-            <label>Service</label>
-            <select required>
-              <option>Hair braiding</option>
-              <option>Frontal installation</option>
-              <option>Custom wig making</option>
-              <option>Hair treatment</option>
-              <option>Manicure</option>
-              <option>Pedicure</option>
+            <label for="bookingEmail">Email</label>
+            <input id="bookingEmail" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="bookingPhone">Phone</label>
+            <input id="bookingPhone" name="phone" type="tel" required>
+          </div>
+          <div class="field full">
+            <label for="bookingService">Service</label>
+            <select id="bookingService" name="service" required>
+              <option value="">Loading services...</option>
             </select>
           </div>
           <div class="field">
-            <label>Date</label>
-            <input type="date" required>
+            <label for="bookingDate">Date</label>
+            <input id="bookingDate" name="booking_date" type="date" required>
           </div>
           <div class="field">
-            <label>Preferred time</label>
-            <input type="time" required>
+            <label for="bookingTime">Preferred time</label>
+            <input id="bookingTime" name="booking_time" type="time" required>
           </div>
           <div class="field full">
-            <label>Notes</label>
-            <textarea placeholder="Tell us anything we should know..."></textarea>
+            <label for="bookingNotes">Notes</label>
+            <textarea id="bookingNotes" name="notes" placeholder="Tell us anything we should know..."></textarea>
           </div>
         </div>
         <button class="btn">Request appointment</button>
-        <div id="bookingStatus" class="notice hidden">
-          Appointment request captured. 
-          Connect this form to your FastAPI booking endpoint to save and confirm appointments.
+        <div id="bookingStatus" class="notice hidden" role="status" aria-live="polite">
         </div>
 
       </form>
-
     </main>
 
-    <!-- Footer content -->
-    <!-- ... -->
-  </body>
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="footer-logo" href="../index.html">CONNIECOMES<span>BEAUTY SALON</span></a>
+          <p>Premium wigs, beautiful hair and professional salon services designed to make every client feel confident, polished and effortlessly beautiful.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="TikTok">TK</a>
+            <a href="https://web.facebook.com/" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="WhatsApp">WA</a>
+          </div>
+        </div>
 
-</html>
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="TikTok">TK</a>
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="WhatsApp">WA</a>
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <a href="shop.html">All Products</a>
+          <a href="category.html?category=wigs">Custom Made Wig Caps</a>
+          <a href="category.html?category=frontals">Frontals</a>
+          <a href="category.html?category=closures">Closures</a>
+          <a href="category.html?category=straight">Straight Hair</a>
+          <a href="category.html?category=curly">Curly Hair</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Beauty Services</h4>
+          <a href="services.html">Hair Braiding</a>
+          <a href="services.html">Frontal Installation</a>
+          <a href="services.html">Custom Wig Making</a>
+          <a href="services.html">Hair Treatments</a>
+          <a href="services.html">Manicure</a>
+          <a href="services.html">Pedicure</a>
+          <a href="booking.html">Book an Appointment</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Customer Care</h4>
+          <a href="contact.html">Contact Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="cart.html">Shopping Cart</a>
+          <a href="checkout.html">Checkout</a>
+          <a href="about.html">About Conniecomes</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Returns & Exchanges</a>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Visit & Connect</h4>
+          <p><strong>Salon</strong><br>Kwabenya, Mususku Junction<br>On the main road, Ghana</p>
+          <p><strong>Opening Hours</strong><br>Mon – Sat · 9:00 AM – 6:00 PM</p>
+          <p><strong>Contact</strong><br>+233 XX XXX XXXX<br>hello@conniecomes.com</p>
+        </div>
       </div>
-    </div>
 
-    <div class="footer-column">
-      <h4>Shop</h4>
-      <a href="shop.html">All Products</a>
-      <a href="category.html?category=wigs">Wigs</a>
-      <a href="category.html?category=frontals">Frontals</a>
-      <a href="category.html?category=closures">Closures</a>
-      <a href="category.html?category=straight">Straight Hair</a>
-      <a href="category.html?category=curly">Curly Hair</a>
-    </div>
+      <div class="footer-newsletter">
+        <div>
+          <p class="eyebrow">Stay in the know</p>
+          <h3>Beauty news, new drops & exclusive offers.</h3>
+          <p>Join our mailing list for product launches, salon updates and special offers.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Enter your email address" required>
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
 
-    <div class="footer-column">
-      <h4>Beauty Services</h4>
-      <a href="services.html">Hair Braiding</a>
-      <a href="services.html">Frontal Installation</a>
-      <a href="services.html">Custom Wig Making</a>
-      <a href="services.html">Hair Treatments</a>
-      <a href="services.html">Manicure</a>
-      <a href="services.html">Pedicure</a>
-      <a href="booking.html">Book an Appointment</a>
-    </div>
+      <div class="footer-trust">
+        <div class="trust-item"><span>✓</span><div><strong>Secure Shopping</strong><small>Protected checkout</small></div></div>
+        <div class="trust-item"><span>✓</span><div><strong>Quality Hair</strong><small>Curated products</small></div></div>
+        <div class="trust-item"><span>✓</span><div><strong>Flexible Payments</strong><small>Card & Mobile Money</small></div></div>
+        <div class="trust-item"><span>✓</span><div><strong>Salon Support</strong><small>We're here to help</small></div></div>
+      </div>
 
-    <div class="footer-column">
-      <h4>Customer Care</h4>
-      <a href="contact.html">Contact Us</a>
-      <a href="account.html">My Account</a>
-      <a href="cart.html">Shopping Cart</a>
-      <a href="checkout.html">Checkout</a>
-      <a href="about.html">About Conniecomes</a>
-      <a href="#">Delivery Information</a>
-      <a href="#">Returns & Exchanges</a>
-    </div>
+      <div class="footer-bottom">
+        <p>© 2026 Conniecomes Beauty Salon. All rights reserved.</p>
+        <div><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Shipping Policy</a></div>
+      </div>
+      <div class="footer-admin-row"><a class="footer-admin-link" href="admin-login.html">Admin sign in</a></div>
+    </footer>
 
-    <div class="footer-contact">
-      <h4>Visit & Connect</h4>
-      <p><strong>Salon</strong><br>Kwabenya, Mususku Junction<br>On the main road, Ghana</p>
-      <p><strong>Opening Hours</strong><br>Mon – Sat · 9:00 AM – 6:00 PM</p>
-      <p><strong>Contact</strong><br>+233 XX XXX XXXX<br>hello@conniecomes.com</p>
-    </div>
-  </div>
-
-  <div class="footer-newsletter">
-    <div>
-      <p class="eyebrow">Stay in the know</p>
-      <h3>Beauty news, new drops & exclusive offers.</h3>
-      <p>Join our mailing list for product launches, salon updates and special offers.</p>
-    </div>
-    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-      <input type="email" placeholder="Enter your email address" required>
-      <button class="btn" type="submit">Subscribe</button>
-    </form>
-  </div>
-
-  <div class="footer-trust">
-    <div class="trust-item"><span>✓</span><div><strong>Secure Shopping</strong><small>Protected checkout</small></div></div>
-    <div class="trust-item"><span>✓</span><div><strong>Quality Hair</strong><small>Curated products</small></div></div>
-    <div class="trust-item"><span>✓</span><div><strong>Flexible Payments</strong><small>Card & Mobile Money</small></div></div>
-    <div class="trust-item"><span>✓</span><div><strong>Salon Support</strong><small>We're here to help</small></div></div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 Conniecomes Beauty Salon. All rights reserved.</p>
-    <div><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Shipping Policy</a></div>
-  </div>
-</footer>
-<script type="module" src="../src/js/app.js"></script>
-</body>
+    <script type="module" src="../src/js/app.js"></script>
+  </body>
 </html>

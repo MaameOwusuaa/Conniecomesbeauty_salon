@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Conniecomes Beauty Salon</title>
+  <link rel="stylesheet" href="../src/css/main.css">
+  <link rel="stylesheet" href="../src/css/admin.css">
+</head>
+<body>
+  <div class="announcement">Conniecomes administration</div>
+  <header class="site-header">
+    <span class="logo">CONNIECOMES<span>BEAUTY SALON</span></span>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation">☰</button>
+    <nav class="nav">
+      <button id="adminSignOut" class="admin-button secondary" type="button">Sign out</button>
+    </nav>
+  </header>
+
+  <main class="admin-page">
+    <section id="adminLoading" class="admin-message" role="status">Checking administrator access...</section>
+    <section id="adminDenied" class="admin-message hidden" role="alert">
+      <p class="eyebrow">Access required</p>
+      <h1>Administrator sign-in required</h1>
+      <p id="adminDeniedMessage">Sign in with an administrator account to manage Conniecomes.</p>
+      <a class="btn" href="admin-login.html">Go to admin sign in</a>
+    </section>
+
+    <div id="adminDashboard" class="admin-dashboard hidden">
+      <aside class="admin-sidebar">
+        <p class="eyebrow">Workspace</p>
+        <h1>Admin</h1>
+        <nav class="admin-tabs" aria-label="Admin sections">
+          <button class="admin-tab active" type="button" data-admin-section="overview">Overview</button>
+          <button class="admin-tab" type="button" data-admin-section="products">Products</button>
+          <button class="admin-tab" type="button" data-admin-section="services">Services</button>
+          <button class="admin-tab" type="button" data-admin-section="messages">Messages</button>
+          <button class="admin-tab" type="button" data-admin-section="bookings">Bookings</button>
+          <button class="admin-tab" type="button" data-admin-section="customers">Customers</button>
+          <button class="admin-tab" type="button" data-admin-section="sales">Sales</button>
+        </nav>
+      </aside>
+
+      <div class="admin-content">
+        <header class="admin-heading">
+          <div>
+            <p class="eyebrow">Conniecomes Beauty Salon</p>
+            <h2 id="adminViewTitle">Overview</h2>
+          </div>
+          <button id="refreshAdmin" class="admin-button secondary" type="button">Refresh data</button>
+        </header>
+        <p id="adminNotice" class="admin-notice hidden" role="status" aria-live="polite"></p>
+
+        <section class="admin-view active" data-admin-view="overview">
+          <div class="admin-stats">
+            <article class="stat-block"><span>Revenue in period</span><strong id="revenueTotal">GHS 0.00</strong></article>
+            <article class="stat-block"><span>Paid orders</span><strong id="paidOrderTotal">0</strong></article>
+            <article class="stat-block"><span>Bookings</span><strong id="bookingTotal">0</strong></article>
+            <article class="stat-block"><span>Admin products</span><strong id="productTotal">0</strong></article>
+          </div>
+          <div class="admin-section-heading">
+            <div><p class="eyebrow">Verified payments</p><h3>Revenue</h3></div>
+            <label class="period-control" for="overviewPeriod">View by
+              <select id="overviewPeriod" class="admin-select">
+                <option value="daily">Day</option><option value="weekly">Week</option><option value="monthly" selected>Month</option><option value="quarterly">Quarter</option><option value="yearly">Year</option>
+              </select>
+            </label>
+          </div>
+          <div id="revenueChart" class="revenue-chart" aria-label="Revenue chart"></div>
+          <div class="admin-section-heading"><div><p class="eyebrow">Latest activity</p><h3>Recent bookings</h3></div><button type="button" class="admin-link" data-open-section="bookings">All bookings</button></div>
+          <div class="table-scroll"><table class="admin-table"><thead><tr><th>Customer</th><th>Service</th><th>Date</th><th>Status</th></tr></thead><tbody id="recentBookingsRows"></tbody></table></div>
+        </section>
+
+        <section class="admin-view" data-admin-view="products">
+          <div class="admin-section-heading"><div><p class="eyebrow">Inventory</p><h3>Add product</h3></div></div>
+          <form id="productForm" class="admin-form">
+            <label>Product name<input name="name" required maxlength="255"></label>
+            <div class="admin-category-picker admin-wide">
+              <span class="admin-field-label">Categories</span>
+              <details id="productCategories">
+                <summary>Select categories</summary>
+                <div class="admin-category-options"></div>
+              </details>
+              <small>Select one or more categories for this product.</small>
+            </div>
+            <label>Price (GHS)<input name="price" type="number" min="0.01" step="0.01" required></label>
+            <label>Stock quantity<input name="stock_quantity" type="number" min="0" step="1" value="0" required></label>
+            <div class="admin-length-picker admin-wide">
+              <span class="admin-field-label">Available lengths</span>
+              <details id="productLengths">
+                <summary>Choose inches</summary>
+                <div class="admin-length-options">
+                  <label><input type="checkbox" value="8"> 8 inches</label>
+                  <label><input type="checkbox" value="10"> 10 inches</label>
+                  <label><input type="checkbox" value="12"> 12 inches</label>
+                  <label><input type="checkbox" value="14"> 14 inches</label>
+                  <label><input type="checkbox" value="16"> 16 inches</label>
+                  <label><input type="checkbox" value="18"> 18 inches</label>
+                  <label><input type="checkbox" value="20"> 20 inches</label>
+                  <label><input type="checkbox" value="22"> 22 inches</label>
+                  <label><input type="checkbox" value="24"> 24 inches</label>
+                  <label><input type="checkbox" value="26"> 26 inches</label>
+                  <label><input type="checkbox" value="28"> 28 inches</label>
+                  <label><input type="checkbox" value="30"> 30 inches</label>
+                  <label><input type="checkbox" value="32"> 32 inches</label>
+                </div>
+              </details>
+              <small>Select one or more lengths. Each selected length adds a variant row below.</small>
+            </div>
+            <label class="admin-wide">Description<textarea name="description" rows="3"></textarea></label>
+            <label class="admin-wide">Product image<input name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required></label>
+            <img id="productImagePreview" class="admin-image-preview hidden" alt="Product image preview">
+            <fieldset class="admin-variant-builder admin-wide">
+              <legend>Initial variants (optional)</legend>
+              <datalist id="variantColorOptions">
+                <option value="Natural Black"></option><option value="Jet Black"></option>
+                <option value="Burgundy"></option><option value="Honey Blonde"></option>
+              </datalist>
+              <div id="initialVariantRows"></div>
+              <button id="addInitialVariant" class="admin-button secondary" type="button">Add variant</button>
+            </fieldset>
+            <div class="admin-wide"><button class="admin-button" type="submit">Add product</button></div>
+          </form>
+          <div class="admin-section-heading">
+            <div><p class="eyebrow">Catalog</p><h3>Products</h3></div>
+          </div>
+          <div class="table-scroll"><table class="admin-table"><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Variant count</th><th>Edit</th><th>Manage</th><th></th></tr></thead><tbody id="productsRows"></tbody></table></div>
+          <section id="editProductPanel" class="admin-variant-manager hidden">
+            <header class="admin-section-heading"><div><p class="eyebrow">Catalog details</p><h3 id="editProductTitle">Edit product</h3></div><button id="closeProductEditor" class="admin-button secondary" type="button">Close</button></header>
+            <form id="editProductForm" class="admin-form">
+              <label>Product name<input name="name" required maxlength="255"></label>
+              <div class="admin-category-picker admin-wide">
+                <span class="admin-field-label">Categories</span>
+                <details id="editProductCategories">
+                  <summary>Select categories</summary>
+                  <div class="admin-category-options"></div>
+                </details>
+                <small>Select one or more categories for this product.</small>
+              </div>
+              <label>Price (GHS)<input name="price" type="number" min="0.01" step="0.01" required></label>
+              <label>Stock quantity<input name="stock_quantity" type="number" min="0" step="1" required></label>
+              <label>Length in inches<input name="length_inches" type="number" min="1" max="100" step="1"></label>
+              <label class="admin-wide">Description<textarea name="description" rows="3"></textarea></label>
+              <label class="admin-wide">Replace base image<input name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+              <img id="editProductImagePreview" class="admin-image-preview hidden" alt="New product image preview">
+              <div class="admin-wide"><button class="admin-button" type="submit">Save product details</button></div>
+            </form>
+          </section>
+          <section id="variantManager" class="admin-variant-manager hidden">
+            <header class="admin-section-heading"><div><p class="eyebrow">Variant inventory</p><h3 id="variantManagerTitle">Manage variants</h3></div><button id="closeVariantManager" class="admin-button secondary" type="button">Close</button></header>
+            <div id="managedVariantRows"></div>
+            <button id="addManagedVariant" class="admin-button secondary" type="button">Add variant</button>
+          </section>
+        </section>
+
+        <section class="admin-view" data-admin-view="services">
+          <div class="admin-section-heading"><div><p class="eyebrow">Salon menu</p><h3>Add service</h3></div></div>
+          <form id="serviceForm" class="admin-form">
+            <label>Service name<input name="name" required maxlength="150"></label>
+            <label class="admin-wide">Description<textarea name="description" rows="3"></textarea></label>
+            <label class="admin-wide">Service image<input name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required></label>
+            <img id="serviceImagePreview" class="admin-image-preview hidden" alt="Service image preview">
+            <div class="admin-wide"><button class="admin-button" type="submit">Add service</button></div>
+          </form>
+          <div class="table-scroll"><table class="admin-table"><thead><tr><th>Service</th><th>Description</th><th></th></tr></thead><tbody id="servicesRows"></tbody></table></div>
+        </section>
+
+        <section class="admin-view" data-admin-view="bookings">
+          <div class="admin-section-heading"><div><p class="eyebrow">Appointment requests</p><h3>Bookings</h3></div></div>
+          <div class="table-scroll"><table class="admin-table"><thead><tr><th>Customer</th><th>Service</th><th>Appointment</th><th>Notes</th><th>Status</th></tr></thead><tbody id="bookingsRows"></tbody></table></div>
+        </section>
+
+        <section class="admin-view" data-admin-view="customers">
+          <div id="customerListView">
+            <div class="admin-section-heading"><div><p class="eyebrow">Registered accounts</p><h3>Customers</h3></div></div>
+            <div class="table-scroll"><table class="admin-table"><thead><tr><th>Customer</th><th>Account</th><th>Orders</th><th>Bookings</th><th>Paid sales</th><th>Open orders</th></tr></thead><tbody id="customersRows"></tbody></table></div>
+          </div>
+          <section id="customerDetails" class="customer-details hidden" aria-live="polite"></section>
+        </section>
+
+        <section class="admin-view" data-admin-view="messages">
+          <div class="admin-section-heading"><div><p class="eyebrow">Customer enquiries</p><h3>Contact messages</h3></div></div>
+          <div class="table-scroll"><table class="admin-table"><thead><tr><th>Sender</th><th>Message</th><th>Received</th></tr></thead><tbody id="contactMessagesRows"></tbody></table></div>
+        </section>
+
+        <section class="admin-view" data-admin-view="sales">
+          <div class="admin-section-heading"><div><p class="eyebrow">Completed transactions</p><h3>Products bought</h3></div>
+            <div class="sales-actions">
+              <label class="period-control" for="salesPeriod">Revenue by
+                <select id="salesPeriod" class="admin-select">
+                  <option value="daily">Day</option><option value="weekly">Week</option><option value="monthly" selected>Month</option><option value="quarterly">Quarter</option><option value="yearly">Year</option>
+                </select>
+              </label>
+              <button id="exportSalesCsv" class="admin-button secondary" type="button">Export CSV</button>
+              <button id="printSales" class="admin-button secondary" type="button">Print sales</button>
+              <button id="clearTransactions" class="admin-button danger" type="button">Clear transaction history</button>
+            </div>
+          </div>
+          <div class="admin-stats admin-stats-single"><article class="stat-block"><span>Revenue in selected period</span><strong id="salesRevenueTotal">GHS 0.00</strong></article></div>
+          <div id="salesRevenueChart" class="revenue-chart" aria-label="Sales revenue chart"></div>
+          <div class="table-scroll"><table class="admin-table"><thead><tr><th>Customer contact</th><th>Delivery location</th><th>Products</th><th>Purchased</th><th>Payment</th><th>Delivery status</th><th>Amount</th></tr></thead><tbody id="ordersRows"></tbody></table></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="../src/js/admin.js"></script>
+</body>
+</html>

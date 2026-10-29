@@ -42,7 +42,7 @@
 
             <a href="contact.html">Contact</a>
 
-            <a href="account.html">Account</a>
+            <a href="booking.html">Book an appointment</a>
 
             <a class="cart-link" href="cart.html">
                 Cart
@@ -74,504 +74,75 @@
         </div>
 
 
-        <!-- CATEGORY FILTERS -->
-        <div class="filters">
+        <div class="catalog-layout">
+            <aside class="catalog-sidebar">
+                <div class="filter-panel">
+                    <p class="eyebrow">Filter by</p>
+                    <div class="filter-group">
+                        <label for="typeFilter">Type</label>
+                        <select id="typeFilter" class="filter-select">
+                            <option value="all">All types</option>
+                            <option value="wig-cap">Wig Caps</option>
+                            <option value="frontal">Frontals</option>
+                            <option value="closure">Closures</option>
+                            <option value="bundle">Bundles</option>
+                        </select>
+                    </div>
 
+                    <div class="filter-group">
+                        <label for="textureFilter">Texture</label>
+                        <select id="textureFilter" class="filter-select">
+                            <option value="all">All textures</option>
+                            <option value="curly">Curly</option>
+                            <option value="bodywave">Bodywave</option>
+                            <option value="straight">Straight</option>
+                        </select>
+                    </div>
 
-            <a
-                class="filter"
-                href="category.html?category=wigs">
-                Wigs
-            </a>
+                    <div class="filter-group">
+                        <label for="styleFilter">Style</label>
+                        <select id="styleFilter" class="filter-select">
+                            <option value="all">All styles</option>
+                        </select>
+                    </div>
 
-            <a
-                class="filter"
-                href="category.html?category=frontals">
-                Frontals
-            </a>
+                    <div class="filter-group">
+                        <label for="priceFilter">Price</label>
+                        <select id="priceFilter" class="filter-select">
+                            <option value="all">All prices</option>
+                            <option value="under-300">Under GHS 300</option>
+                            <option value="300-500">GHS 300 - 500</option>
+                            <option value="500-700">GHS 500 - 700</option>
+                            <option value="700-plus">GHS 700+</option>
+                        </select>
+                    </div>
 
-            <a
-                class="filter"
-                href="category.html?category=closures">
-                Closures
-            </a>
-
-            <a
-                class="filter"
-                href="category.html?category=straight">
-                Straight Hair
-            </a>
-
-            <a
-                class="filter"
-                href="category.html?category=curly">
-                Curly Hair
-            </a>
-
-        </div>
-
-
-        <!-- PRODUCTS -->
-        <div
-            class="product-grid"
-            id="categoryProducts">
-
-
-            <!-- ================================= -->
-            <!-- WIGS -->
-            <!-- ================================= -->
-
-            <article
-                class="product-card category-product"
-                data-category="wigs">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/bob wig.jpg"
-                        alt="Straight Bob Wig">
-
+                    <div class="filter-group">
+                        <label for="lengthFilter">Length</label>
+                        <select id="lengthFilter" class="filter-select">
+                            <option value="all">All lengths</option>
+                            <option value="8">8 inches</option>
+                            <option value="10">10 inches</option>
+                            <option value="12">12 inches</option>
+                            <option value="14">14 inches</option>
+                            <option value="16">16 inches</option>
+                            <option value="18">18 inches</option>
+                            <option value="20">20 inches</option>
+                            <option value="22">22 inches</option>
+                            <option value="24">24 inches</option>
+                            <option value="26">26 inches</option>
+                            <option value="28">28 inches</option>
+                            <option value="30">30 inches</option>
+                            <option value="32">32 inches</option>
+                        </select>
+                    </div>
                 </div>
+            </aside>
 
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Ready-Made Wigs
-                    </p>
-
-                    <h3>
-                        Straight Bob Wig
-                    </h3>
-
-                    <p>
-                        100% human hair
-                    </p>
-
-                    <strong>
-                        GHS 450.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="1"
-                        data-product-name="Straight Bob Wig"
-                        data-product-price="450"
-                        data-product-image="https://placehold.co/900x1100/d4b6a8/ffffff?text=Straight+Bob+Wig">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="product-card category-product"
-                data-category="wigs">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/5x5 curly wigcap.jpg"
-                        alt="Curly Wig">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Ready-Made Wig
-                    </p>
-
-                    <h3>
-                        Curly Wig
-                    </h3>
-
-                    <p>
-                        100% human hair
-                    </p>
-
-                    <strong>
-                        GHS 550.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="2"
-                        data-product-name="Curly Wig"
-                        data-product-price="550"
-                        data-product-image="https://placehold.co/900x1100/c9a99b/ffffff?text=Curly+Wig">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="product-card category-product"
-                data-category="wigs">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/5x5 bodywave wigacp.jpg"
-                        alt="Body Wave Wig">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Ready-Made Wig
-                    </p>
-
-                    <h3>
-                        Body Wave Wig
-                    </h3>
-
-                    <p>
-                        100% human hair
-                    </p>
-
-                    <strong>
-                        GHS 600.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="3"
-                        data-product-name="Body Wave Wig"
-                        data-product-price="600"
-                        data-product-image="https://placehold.co/900x1100/bd9587/ffffff?text=Body+Wave+Wig">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <!-- ================================= -->
-            <!-- FRONTALS -->
-            <!-- ================================= -->
-
-            <article
-                class="product-card category-product"
-                data-category="frontals">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/13x4 curly frontal.jpg"
-                        alt="13x4 Frontal">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Frontal
-                    </p>
-
-                    <h3>
-                        13x4 Frontal
-                    </h3>
-
-                    <p>
-                        Premium human hair frontal
-                    </p>
-
-                    <strong>
-                        GHS 350.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="4"
-                        data-product-name="13x4 Frontal"
-                        data-product-price="350"
-                        data-product-image="https://placehold.co/900x1100/d8c2b1/5c4640?text=13x4+Frontal">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="product-card category-product"
-                data-category="frontals">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/13x6 bodywave frontal.jpg"
-                        alt="13x6 Frontal">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Frontal
-                    </p>
-
-                    <h3>
-                        13x6 Frontal
-                    </h3>
-
-                    <p>
-                        Premium human hair frontal
-                    </p>
-
-                    <strong>
-                        GHS 400.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="5"
-                        data-product-name="13x6 Frontal"
-                        data-product-price="400"
-                        data-product-image="https://placehold.co/900x1100/d8c2b1/5c4640?text=13x6+Frontal">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
+            <div class="product-grid" id="categoryProducts">
 
 
             
-                </div>
-
-            </article>
-
-
-            <!-- ================================= -->
-            <!-- CLOSURES -->
-            <!-- ================================= -->
-
-                
-
-            <article
-                class="product-card category-product"
-                data-category="closures">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/5x5 bodywave closure.jpg"
-                        alt="4x4 Closure">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Closure
-                    </p>
-
-                    <h3>
-                        4x4 Closure
-                    </h3>
-
-                    <p>
-                        Premium human hair closure
-                    </p>
-
-                    <strong>
-                        GHS 280.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="8"
-                        data-product-name="4x4 Closure"
-                        data-product-price="280"
-                        data-product-image="https://placehold.co/900x1100/cbb5a4/5c4640?text=4x4+Closure">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <article
-                class="product-card category-product"
-                data-category="closures">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/5x5 closure straight.jpg"
-                        alt="5x5 Closure">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Closure
-                    </p>
-
-                    <h3>
-                        5x5 Closure
-                    </h3>
-
-                    <p>
-                        Premium human hair closure
-                    </p>
-
-                    <strong>
-                        GHS 300.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="9"
-                        data-product-name="5x5 Closure"
-                        data-product-price="300"
-                        data-product-image="https://placehold.co/900x1100/cbb5a4/5c4640?text=5x5+Closure">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-        
-
-
-            <!-- ================================= -->
-            <!-- STRAIGHT HAIR -->
-            <!-- ================================= -->
-
-            <article
-                class="product-card category-product"
-                data-category="straight">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/straight bundles.jpg"
-                        alt="Straight Hair Bundle">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Hair Bundle
-                    </p>
-
-                    <h3>
-                        Straight Hair Bundle
-                    </h3>
-
-                    <p>
-                        Premium straight human hair
-                    </p>
-
-                    <strong>
-                        GHS 350.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="11"
-                        data-product-name="Straight Hair Bundle"
-                        data-product-price="350"
-                        data-product-image="https://placehold.co/900x1100/e2d5c9/5c4640?text=Straight+Hair+Bundle">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <!-- ================================= -->
-            <!-- CURLY HAIR -->
-            <!-- ================================= -->
-
-            <article
-                class="product-card category-product"
-                data-category="curly">
-
-                <div class="product-image">
-
-                    <img
-                        src="../images/5x5 curly wigcap.jpg"
-                        alt="Curly Hair Bundle">
-
-                </div>
-
-                <div class="product-info">
-
-                    <p class="eyebrow">
-                        Hair Bundle
-                    </p>
-
-                    <h3>
-                        Curly Hair Bundle
-                    </h3>
-
-                    <p>
-                        Premium curly human hair
-                    </p>
-
-                    <strong>
-                        GHS 400.00
-                    </strong>
-
-                    <button
-                        type="button"
-                        class="btn add-to-cart"
-                        data-product-id="12"
-                        data-product-name="Curly Hair Bundle"
-                        data-product-price="400"
-                        data-product-image="https://placehold.co/900x1100/bfa79a/ffffff?text=Curly+Hair+Bundle">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-        </div>
 
     </main>
 
@@ -613,7 +184,7 @@
                 <h4>Shop</h4>
 
                 <a href="shop.html">All Products</a>
-                <a href="category.html?category=wigs">Wigs</a>
+                <a href="category.html?category=wigs">Custom Made Wig Caps</a>
                 <a href="category.html?category=frontals">Frontals</a>
                 <a href="category.html?category=closures">Closures</a>
                 <a href="category.html?category=straight">Straight Hair</a>
@@ -642,7 +213,7 @@
                 <h4>Customer Care</h4>
 
                 <a href="contact.html">Contact Us</a>
-                <a href="account.html">My Account</a>
+                <a href="contact.html">Contact Us</a>
                 <a href="cart.html">Shopping Cart</a>
                 <a href="checkout.html">Checkout</a>
                 <a href="about.html">About Conniecomes</a>
@@ -664,7 +235,8 @@
 
                 <p>
                     <strong>Opening Hours</strong><br>
-                    Mon – Sat · 9:00 AM – 6:00 PM
+                    Mon – Sat · 9:00 AM – 9:00 PM <br>
+                    Sun · 2:00 PM – 9:00 PM
                 </p>
 
                 <p>
@@ -784,6 +356,7 @@
             </div>
 
         </div>
+                <div class="footer-admin-row"><a class="footer-admin-link" href="admin-login.html">Admin sign in</a></div>
 
     </footer>
 
@@ -794,4 +367,3 @@
 </body>
 
 </html>
-
