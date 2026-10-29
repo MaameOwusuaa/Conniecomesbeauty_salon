@@ -4,6 +4,6 @@
 // ============================================================
 
 const API_BASE_URL =
-    "https://conniecomesbackend-ge40c17dx-owusuaa.vercel.app";
+    "https://conniecomesbackend.vercel.app";
 
 export { API_BASE_URL };
